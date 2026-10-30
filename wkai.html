@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0d12">
+<title>CINEPICK｜電影探索所</title>
+<style>
+:root{--bg:#0b0d12;--panel:#141821;--panel2:#1b202b;--gold:#efc36a;--muted:#9ba1ae;--line:#292f3b;--white:#f5f5f6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,"Noto Sans TC","Microsoft JhengHei",sans-serif}button,input{font:inherit}button{cursor:pointer}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+header{height:76px;border-bottom:1px solid #ffffff12;display:flex;align-items:center;position:sticky;top:0;background:#0b0d12eF;backdrop-filter:blur(14px);z-index:10}.nav{display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:2px;color:var(--gold);font-size:22px}.brand-mark{width:34px;height:34px;border:1px solid var(--gold);border-radius:10px;display:grid;place-items:center;font-size:18px}.navlinks{display:flex;gap:27px}.navlinks a{color:#c2c5ce;text-decoration:none;font-size:14px}.navlinks a:hover{color:var(--gold)}.nav-right{color:var(--muted);font-size:12px}
+.hero{padding:64px 0 38px;display:grid;grid-template-columns:1.08fr .92fr;gap:42px;align-items:center}.eyebrow{color:var(--gold);font-size:11px;letter-spacing:3px;font-weight:800}.hero h1{font-size:clamp(38px,5.4vw,66px);line-height:1.12;letter-spacing:-2px;margin:15px 0}.hero h1 span{color:var(--gold)}.hero p{color:#aeb3bf;line-height:1.9;max-width:500px;font-size:15px}.hero-actions{display:flex;gap:12px;margin-top:25px}.btn{border:1px solid var(--line);background:transparent;color:var(--white);border-radius:9px;padding:12px 18px;font-weight:700}.btn.primary{background:var(--gold);color:#17130b;border-color:var(--gold)}.btn:hover{transform:translateY(-1px);filter:brightness(1.08)}.hero-art{height:365px;border-radius:18px;overflow:hidden;position:relative;background:linear-gradient(135deg,#202a3b,#11141c)}.hero-art img{width:100%;height:100%;object-fit:cover;opacity:.78}.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0d1233,transparent 55%),linear-gradient(0deg,#0b0d12aa,transparent 55%)}.hero-caption{position:absolute;z-index:1;bottom:24px;left:25px}.hero-caption small{color:var(--gold);letter-spacing:2px}.hero-caption h2{font-size:28px;margin:8px 0 0}
+.stats{display:flex;gap:35px;margin-top:27px}.stat strong{font-size:21px;color:#fff;display:block}.stat span{font-size:11px;color:var(--muted)}
+.section{padding:30px 0 56px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.section-head h2{font-size:25px;margin:8px 0 0}.section-head p{color:var(--muted);font-size:13px;margin:0}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 22px}.searchbox{flex:1;min-width:220px;position:relative}.searchbox input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 15px 14px 43px;color:#fff;outline:none}.searchbox input:focus{border-color:var(--gold)}.searchbox span{position:absolute;left:15px;top:12px;color:var(--muted);font-size:18px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);border-radius:99px;padding:10px 15px;color:#c4c8d0;background:transparent;font-size:13px}.filter.active,.filter:hover{background:var(--gold);border-color:var(--gold);color:#17130b;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.movie{background:var(--panel);border:1px solid #ffffff0b;border-radius:13px;overflow:hidden;transition:.22s;min-width:0}.movie:hover{transform:translateY(-5px);border-color:#efc36a66;box-shadow:0 15px 35px #0005}.poster{height:300px;position:relative;background:#222936;overflow:hidden}.poster img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}.movie:hover .poster img{transform:scale(1.04)}.poster:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#141821aa)}.tag{position:absolute;top:12px;left:12px;background:#0b0d12d9;color:var(--gold);border:1px solid #efc36a55;border-radius:5px;padding:5px 8px;font-size:10px;z-index:1}.heart{position:absolute;top:10px;right:10px;z-index:2;width:35px;height:35px;border:1px solid #ffffff55;border-radius:50%;background:#0b0d12bd;color:#fff;font-size:17px}.heart.saved{color:#ff7185;border-color:#ff7185}.movie-info{padding:14px}.movie-top{display:flex;justify-content:space-between;gap:8px;align-items:start}.movie h3{font-size:16px;margin:0 0 5px}.english{font-size:10px;color:var(--muted);letter-spacing:1px}.rating{white-space:nowrap;color:var(--gold);font-size:12px;font-weight:800}.meta{font-size:11px;color:var(--muted);margin:12px 0}.desc{font-size:12px;color:#b6bbc5;line-height:1.65;min-height:40px}.details{width:100%;margin-top:13px;background:#222936;border:0;color:#e9c879;border-radius:7px;padding:9px;font-size:12px;font-weight:700}.details:hover{background:#30394a}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:55px 15px;border:1px dashed var(--line);border-radius:12px}.empty b{display:block;color:#fff;font-size:17px;margin-bottom:8px}
+.saved-strip{background:linear-gradient(110deg,#171b25,#11151d);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px}.saved-strip h3{margin:0 0 5px}.saved-strip p{margin:0;color:var(--muted);font-size:12px}.saved-count{font-size:25px;color:var(--gold);font-weight:900}
+footer{border-top:1px solid var(--line);padding:28px 0 35px;color:#737987;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.footer-brand{color:var(--gold);font-weight:900;letter-spacing:2px}
+.modal{position:fixed;inset:0;background:#000b;display:none;place-items:center;padding:20px;z-index:30}.modal.open{display:grid}.dialog{width:min(760px,100%);max-height:90vh;overflow:auto;background:#151a24;border:1px solid #343b49;border-radius:16px;position:relative}.close{position:absolute;right:13px;top:13px;z-index:2;border:0;border-radius:50%;width:35px;height:35px;background:#090c12cc;color:#fff;font-size:20px}.dialog-content{display:grid;grid-template-columns:230px 1fr;gap:25px;padding:28px}.dialog-content img{width:100%;border-radius:10px}.dialog h2{margin:5px 0 8px;font-size:27px}.dialog p{color:#b8bdc7;line-height:1.8;font-size:14px}.dialog .facts{color:var(--gold);font-size:13px;margin:12px 0}.dialog-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.hero{gap:25px}.poster{height:280px}}
+@media(max-width:650px){.wrap{width:min(100% - 28px,560px)}header{height:65px}.navlinks{gap:13px}.navlinks a{font-size:12px}.nav-right{display:none}.hero{padding:38px 0 25px;grid-template-columns:1fr}.hero-art{height:250px;grid-row:1}.hero h1{font-size:43px}.stats{gap:23px}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.poster{height:235px}.movie-info{padding:11px}.movie h3{font-size:14px}.section{padding-bottom:40px}.dialog-content{grid-template-columns:110px 1fr;padding:20px;gap:15px}.dialog h2{font-size:21px}}
+@media(max-width:390px){.grid{grid-template-columns:1fr 1fr}.poster{height:205px}.navlinks{gap:9px}.navlinks a{font-size:11px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#" style="text-decoration:none"><span class="brand-mark">▣</span>CINEPICK</a>
+  <nav class="navlinks"><a href="#discover">探索電影</a><a href="#favorites">我的收藏</a></nav>
+  <div class="nav-right">YOUR PERSONAL MOVIE GUIDE</div>
+</div></header>
+<main class="wrap">
+<section class="hero">
+  <div>
+    <div class="eyebrow">YOUR NEXT FAVORITE FILM STARTS HERE</div>
+    <h1>好電影，<br><span>值得被發現。</span></h1>
+    <p>不知道今晚要看什麼？從精選片單開始，探索科幻、劇情、動畫與懸疑佳作。找到喜歡的電影，加入收藏，下次再看。</p>
+    <div class="hero-actions"><a class="btn primary" href="#discover" style="text-decoration:none">開始探索　→</a><button class="btn" id="randomBtn">✦ 隨機推薦</button></div>
+    <div class="stats"><div class="stat"><strong>精選片單</strong><span>值得一看的好作品</span></div><div class="stat"><strong>免登入</strong><span>打開就能立即使用</span></div><div class="stat"><strong>免費探索</strong><span>收藏喜愛的電影</span></div></div>
+  </div>
+  <div class="hero-art"><img src="https://image.tmdb.org/t/p/w780/gEU2QniE6E77NI6lCU6MllNYc2I.jpg" alt="星際效應電影畫面"><div class="hero-caption"><small>EDITOR'S PICK · 精選推薦</small><h2>星際效應</h2></div></div>
+</section>
+<section class="section" id="discover">
+  <div class="section-head"><div><div class="eyebrow">CURATED FOR YOU</div><h2>探索電影</h2></div><p id="resultCount">精選電影</p></div>
+  <div class="toolbar"><div class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="搜尋電影名稱、英文片名或關鍵字…"></div></div>
+  <div class="filters" id="filters">
+    <button class="filter active" data-genre="全部">全部電影</button><button class="filter" data-genre="科幻">科幻</button><button class="filter" data-genre="劇情">劇情</button><button class="filter" data-genre="動畫">動畫</button><button class="filter" data-genre="懸疑">懸疑</button><button class="filter" data-genre="動作">動作</button>
+  </div>
+  <div class="grid" id="movieGrid" style="margin-top:20px"></div>
+</section>
+<section class="section" id="favorites">
+  <div class="section-head"><div><div class="eyebrow">YOUR WATCHLIST</div><h2>我的收藏</h2></div><p>只存在你的這台裝置</p></div>
+  <div class="saved-strip"><div><h3>把想看的電影收進口袋</h3><p>點擊電影卡片上的愛心，就能加入或移出收藏。</p></div><div class="saved-count"><span id="favCount">0</span> <small style="font-size:12px;color:#aeb3bf">部</small></div></div>
+  <div class="grid" id="favoriteGrid" style="margin-top:18px"></div>
+</section>
+</main>
+<footer><div class="wrap footer-inner"><div><div class="footer-brand">CINEPICK</div><div style="margin-top:7px">DISCOVER YOUR NEXT FAVORITE MOVIE.</div></div><div>© 2026 CINEPICK · 電影資訊僅供推薦參考</div></div></footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="dialog"><button class="close" id="closeModal" aria-label="關閉">×</button><div id="modalBody"></div></div></div>
+<script>
+const movies=[
+{id:1,title:"星際效應",en:"INTERSTELLAR",year:2014,genre:"科幻",rating:"8.7",tag:"必看神作",desc:"地球逐漸走向衰敗，一名前飛行員加入太空任務，穿越蟲洞尋找人類的新家園。關於親情、時間與宇宙的史詩故事。",poster:"https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MllNYc2I.jpg",trailer:"zSWdZVtXT7E"},
+{id:2,title:"全面啟動",en:"INCEPTION",year:2010,genre:"科幻",rating:"8.8",tag:"燒腦推薦",desc:"一群專業盜夢者深入目標人物的潛意識，執行一場幾乎不可能完成的任務。夢境與現實的界線令人著迷。",poster:"https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg",trailer:"YoHD9XEInc0"},
+{id:3,title:"寄生上流",en:"PARASITE",year:2019,genre:"懸疑",rating:"8.5",tag:"奧斯卡得獎",desc:"生活困頓的一家人，逐步進入富裕家庭工作。一場看似平常的相遇，逐漸揭開令人不安的階級真相。",poster:"https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",trailer:"5xH0HfJHsaY"},
+{id:4,title:"神隱少女",en:"SPIRITED AWAY",year:2001,genre:"動畫",rating:"8.6",tag:"經典動畫",desc:"少女千尋誤闖神靈世界，為了拯救父母而在神秘澡堂工作，展開一段奇幻又動人的成長旅程。",poster:"https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",trailer:"ByXuk9QqQkk"},
+{id:5,title:"刺激1995",en:"THE SHAWSHANK REDEMPTION",year:1994,genre:"劇情",rating:"9.3",tag:"高分經典",desc:"銀行家被判終身監禁，在高牆之內與好友建立深厚情誼。即使身處黑暗，也不放棄對自由與希望的追尋。",poster:"https://image.tmdb.org/t/p/w500/9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg",trailer:"6hB3S9bIaco"},
+{id:6,title:"小丑",en:"JOKER",year:2019,genre:"劇情",rating:"8.4",tag:"深度電影",desc:"在冷漠城市中，一位失意的喜劇演員逐漸被社會推向邊緣，走上一條令人心碎又震撼的道路。",poster:"https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",trailer:"zAGVQLHvwOY"},
+{id:7,title:"捍衛任務",en:"JOHN WICK",year:2014,genre:"動作",rating:"7.4",tag:"動作爽片",desc:"退休殺手因一場意外重出江湖，以俐落凌厲的動作場面展開復仇。節奏明快，適合想看刺激電影的夜晚。",poster:"https://image.tmdb.org/t/p/w500/fZPSd91yGE9fCCCe6OoQr6E3Bev.jpg",trailer:"2AUmvWm5ZDQ"},
+{id:8,title:"可可夜總會",en:"COCO",year:2017,genre:"動畫",rating:"8.4",tag:"溫馨感動",desc:"熱愛音樂的小男孩意外來到亡靈世界，在奇幻旅程中探索家族記憶、夢想與愛的意義。",poster:"https://image.tmdb.org/t/p/w500/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg",trailer:"Rvr68u6k5sI"}
+];
+let genre="全部",query="",favorites=JSON.parse(localStorage.getItem("cinepick-favorites")||"[]");
+const grid=document.getElementById("movieGrid"),favGrid=document.getElementById("favoriteGrid");
+function card(m){return `<article class="movie"><div class="poster"><img src="${m.poster}" alt="${m.title}電影海報" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#293449,#11151d)'"><span class="tag">${m.tag}</span><button class="heart ${favorites.includes(m.id)?'saved':''}" data-heart="${m.id}" aria-label="收藏">${favorites.includes(m.id)?'♥':'♡'}</button></div><div class="movie-info"><div class="movie-top"><div><h3>${m.title}</h3><div class="english">${m.en}</div></div><div class="rating">★ ${m.rating}</div></div><div class="meta">${m.year}　·　${m.genre}</div><div class="desc">${m.desc.slice(0,49)}${m.desc.length>49?'…':''}</div><button class="details" data-detail="${m.id}">查看電影介紹　→</button></div></article>`}
+function render(){let list=movies.filter(m=>(genre==="全部"||m.genre===genre)&&(`${m.title} ${m.en} ${m.desc} ${m.genre}`).toLowerCase().includes(query.toLowerCase()));grid.innerHTML=list.length?list.map(card).join(''):'<div class="empty"><b>沒有找到符合條件的電影</b>試試其他關鍵字或切換電影分類。</div>';document.getElementById("resultCount").textContent=`找到 ${list.length} 部電影`;let saved=movies.filter(m=>favorites.includes(m.id));favGrid.innerHTML=saved.length?saved.map(card).join(''):'<div class="empty"><b>收藏清單還是空的</b>按下電影卡片上的 ♡，收藏想看的電影吧！</div>';document.getElementById("favCount").textContent=saved.length}
+function toggleFavorite(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];localStorage.setItem("cinepick-favorites",JSON.stringify(favorites));render()}
+document.getElementById("filters").addEventListener("click",e=>{let b=e.target.closest("[data-genre]");if(!b)return;genre=b.dataset.genre;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));render()});
+document.getElementById("search").addEventListener("input",e=>{query=e.target.value.trim();render()});
+document.addEventListener("click",e=>{let h=e.target.closest("[data-heart]");if(h){toggleFavorite(Number(h.dataset.heart));return}let d=e.target.closest("[data-detail]");if(d)openDetail(Number(d.dataset.detail))});
+function openDetail(id){let m=movies.find(x=>x.id===id);document.getElementById("modalBody").innerHTML=`<div class="dialog-content"><img src="${m.poster}" alt="${m.title}海報"><div><div class="eyebrow">${m.tag}</div><h2>${m.title}</h2><div style="color:#9ba1ae;letter-spacing:1px;font-size:11px">${m.en}</div><div class="facts">★ ${m.rating}　｜　${m.year}　｜　${m.genre}</div><p>${m.desc}</p><div class="dialog-actions"><button class="btn primary" id="trailerBtn">▶ 觀看預告片</button><button class="btn" id="modalFav">${favorites.includes(id)?'♥ 已收藏':'♡ 加入收藏'}</button></div></div></div>`;document.getElementById("modal").classList.add("open");document.getElementById("trailerBtn").onclick=()=>window.open(`https://www.youtube.com/watch?v=${m.trailer}`,"_blank","noopener");document.getElementById("modalFav").onclick=()=>{toggleFavorite(id);openDetail(id)}}
+function closeModal(){document.getElementById("modal").classList.remove("open")}
+document.getElementById("closeModal").onclick=closeModal;document.getElementById("modal").addEventListener("click",e=>{if(e.target.id==="modal")closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+document.getElementById("randomBtn").onclick=()=>{let m=movies[Math.floor(Math.random()*movies.length)];openDetail(m.id)};
+render();
+</script>
+</body></html>
